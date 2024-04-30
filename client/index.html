@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./resources/styles/index.css">
     <title>Book Rental!!</title>
   </head>
+  <!-- loads when the site loads -->
+  <!-- imports js files -->
   <body onload ="handleOnLoad()">
     <script src="./resources/scripts/api.js"></script>
     <script src="./resources/scripts/index.js"></script>
@@ -17,6 +19,7 @@
         <h1>Book Rental System</h1>
     </div>
 
+    <!-- shows book information -->
     <div class = "container">
         <div class = "row">
             <div class = "col-md-3">
@@ -42,6 +45,7 @@
                     <input type="text" id="bookCover" name="cover" readOnly><br><br>
 
                 </form>
+                <!-- displays buttons! -->
                 <div class ="btnRow">
                     <button id = "newButton" class="btn btn-primary" onclick="handleNewClick()">New</button>
                     <button id = "editButton" class="btn btn-primary" onclick="handleEditClick()">Edit</button>
@@ -53,6 +57,7 @@
                 </div>
             </div>
             <div class = "col-md-3">
+                <!-- shows the cover art of the books -->
                 <h3> Cover Art</h3>
                 <div id="picBox"></div>
             </div>

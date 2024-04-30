@@ -1,7 +1,9 @@
+//populates the website with book data when it loads
 function handleOnLoad(){
     populateList();
 }
 
+//handles on the change
 function handleOnChange(){
     const selectedID = document.getElementById("selectListBox").value;
     bookList.forEach((book)=>{
@@ -13,6 +15,7 @@ function handleOnChange(){
         populateForm();
     };
     
+    //edits part of the book
     function handleEditClick(){
         makeEditable();
         hideButtons();
@@ -23,6 +26,7 @@ function handleOnChange(){
 
     }
 
+    //handles making a new book in the system
     function handleNewClick(){
         makeEditable();
         hideButtons();
@@ -33,18 +37,21 @@ function handleOnChange(){
         document.getElementById("saveButton").style.display = "inline-block";
     }
 
+    //handles the rent button being pressed
     function handleRentClick(){
         myBook.numAvlb--;
         document.getElementById("bookAvlb").value = myBook.numAvlb;
         putBook(myBook.id);
     }
 
+    //handles the return button being pressed
     function handleReturnClick(){
         myBook.numAvlb++;
         document.getElementById("bookAvlb").value = myBook.numAvlb;
         putBook(myBook.id);
     }
 
+    //handles the delete button being pressed
     function handleDeleteClick(){
         deleteBook();
     }
@@ -71,7 +78,7 @@ function handleOnChange(){
 
 
 
-
+//changes the elements from readOnly to editable
 function makeEditable(){
     document.getElementById("bookTitle").readOnly = false; 
     document.getElementById("bookAuthor").readOnly = false; 
@@ -82,6 +89,7 @@ function makeEditable(){
     document.getElementById("bookCover").readOnly = false; 
 }
 
+//changes the fields to blank
 function blankFields(){
     document.getElementById("bookTitle").value = ""; 
     document.getElementById("bookAuthor").value = ""; 
@@ -92,6 +100,7 @@ function blankFields(){
     document.getElementById("bookCover").value = "";  
 }
 
+//makes the data not editable
 function makeReadOnly(){
     document.getElementById("bookTitle").readOnly = true; 
     document.getElementById("bookAuthor").readOnly = true; 
@@ -102,6 +111,7 @@ function makeReadOnly(){
     document.getElementById("bookCover").readOnly = true; 
 }
 
+//gets the data and populates the website
 function populateForm(){
     document.getElementById("bookTitle").value = myBook.title; 
     document.getElementById("bookAuthor").value = myBook.author; 
@@ -113,7 +123,7 @@ function populateForm(){
     var html = "<img class = \"coverArt\" src = \"" + myBook.cover + "\"></img>";
     document.getElementById("picBox").innerHTML = html;
 }
-
+//hides buttons
 function hideButtons(){
     document.getElementById("newButton").style.display = "none";
     document.getElementById("editButton").style.display = "none";
@@ -122,6 +132,7 @@ function hideButtons(){
     document.getElementById("returnButton").style.display = "none";
 }
 
+//shows buttons
 function showButtons(){
     document.getElementById("newButton").style.display = "inline-block";
     document.getElementById("editButton").style.display = "inline-block";
